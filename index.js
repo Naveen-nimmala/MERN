@@ -20,7 +20,7 @@ app.get('/', (req,res) => {
 // Define routes 
 app.use('/posts', require('./routes/post'));
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 
 app.listen(PORT, () => console.log(`App is running on ${PORT}`)); 

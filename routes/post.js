@@ -6,7 +6,7 @@ const Post = require('../models/Post')
 // Route  Post api/posts
 // Create Post
 // Private route
-router.post('/',  async (req, res) => {
+router.post('/add',  async (req, res) => {
     console.log(req.body);
     try {
         const post = await new Post(req.body);
@@ -35,12 +35,12 @@ router.get('/', async (req,res) =>{
 })
 
 
-router.get("/post/:id", async(req, res) => {
+router.get("/detail/:id", async(req, res) => {
 
     let id = req.params.id;
     try {
         const post = await Post.findById(id);
-        return res.json({post})
+        return res.status(200).json({success: true, post: post})
     } catch (error) {
         console.error(error.message)
     }
